@@ -1,3 +1,4 @@
+import 'package:daily_news/screen/detail_screen.dart';
 import 'package:daily_news/screen/main_screen.dart';
 import 'package:daily_news/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,11 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/main',
       builder: (context, state) => MainScreen(),
-    )
+    ),
+    GoRoute(path: '/detail', builder: (context, state) {
+        dynamic newsInfo = state.extra as dynamic;
+        return DetailScreen(newsItem: newsInfo);
+    },)
   ],
 );
 
