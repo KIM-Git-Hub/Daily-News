@@ -76,20 +76,23 @@ class _MainScreenState extends State<MainScreen> {
                                       bottomRight: Radius.circular(10)))),
                           child: Column(
                             children: [
-                              Text(
-                                newsItem['title'],
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  newsItem['title'],
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
                               ),
                               Container(
                                 margin: const EdgeInsets.only(top: 5),
                                 alignment: Alignment.bottomRight,
-                                child: Text(formatDate(newsItem['publishedAt']),
+                                child: Text(formatDate(newsItem['publishedAt'],),
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
