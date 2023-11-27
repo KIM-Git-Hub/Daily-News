@@ -152,7 +152,7 @@ class _MainScreenState extends State<MainScreen> {
     //뉴스 정보를 가지고 오는 api 활용
     const apiKey = '2eb20a2fe5d0469e91adf30622eeb9a8';
     const apiUrl =
-        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=$apiKey';
+        'https://newsapi.org/v2/top-headlines?country=jp&apiKey=$apiKey';
 
     try {
       //네트워크 통신을 요청하고 response 변수에 결과 값이 저장됨
