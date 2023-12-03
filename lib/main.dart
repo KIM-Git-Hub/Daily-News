@@ -13,11 +13,11 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/splash',
-      builder: (context, state) => SplashScreen(),
+      builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
       path: '/main',
-      builder: (context, state) => MainScreen(),
+      builder: (context, state) => const MainScreen(),
     ),
     GoRoute(path: '/detail', builder: (context, state) {
         dynamic newsInfo = state.extra as dynamic;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -171,15 +172,34 @@ class _DetailScreenState extends State<DetailScreen> {
           )),
           Container(
             margin: const EdgeInsets.only(bottom: 15),
-            child: ElevatedButton(
-                onPressed: () {
-                  launchURL();
-                },
-                child: const Text('元のページを開く')),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      launchURL();
+                    },
+                    child: const Text('元のページを開く')),
+                Container(
+                  margin: const EdgeInsets.only(left: 20),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      shareNews(
+                          '${widget.newsItem['title']}\n\n${widget.newsItem['url']}',
+                          'share news');
+                    },
+                    child: const Text('共有')),
+              ],
+            ),
           )
         ],
       ),
     );
+  }
+
+  void shareNews(String shareInfo, String subject) async {
+    await Share.share(shareInfo, subject: subject);
   }
 
   void launchURL() async {
